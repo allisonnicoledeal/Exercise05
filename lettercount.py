@@ -5,17 +5,13 @@ txt = open(file_name)
 filetext = txt.read()
 txt.close()
 
-alphabet = {}
-
-for i in range(97,123):
-	letter = chr(i)
-	alphabet[letter] = 0
-
 filetext.lower()
 
+alphabet = [0] * 26
+
 for char in filetext:
-	if alphabet.get(char) != None:
-		alphabet[char] += 1
+	if 97 <= ord(char) <= 122:
+		alphabet[ord(char)-97] += 1
 
 for item in alphabet:
-	print alphabet[item]
+	print item
